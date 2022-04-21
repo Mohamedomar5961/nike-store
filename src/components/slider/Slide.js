@@ -2,8 +2,6 @@ import React, { useState } from "react";
 
 const Slide = () => {
   const [x, setX] = useState(0);
-  const [delay, setDelay] = useState(true);
-  const [timer, setTimer] = useState(0);
   const styles = {
     transform: `translateX(${x}%)`,
     transition: "transform 0.3s ease-in-out",
