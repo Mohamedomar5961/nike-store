@@ -23,12 +23,12 @@ const CartPage = () => {
   };
 
   const getCart = async () => {
-    const result = await axios.get("http://localhost:3000/cart");
+    const result = await axios.get("https://api-test-mu.vercel.app/cart");
     setCartData(result.data);
   };
 
   const getFavorite = async () => {
-    const result = await axios.get("http://localhost:3000/favorites");
+    const result = await axios.get("https://api-test-mu.vercel.app/favorites");
     setFavData(result.data);
   };
 
@@ -46,7 +46,7 @@ const CartPage = () => {
   });
 
   const onTrash = async (id) => {
-    await axios.delete(`http://localhost:3000/cart/${id}`);
+    await axios.delete(`https://api-test-mu.vercel.app/cart/${id}`);
     getCart();
     countDispatcher();
   };
@@ -62,16 +62,16 @@ const CartPage = () => {
       status: "favored",
     };
 
-    await axios.post("http://localhost:3000/favorites", theArray);
+    await axios.post("https://api-test-mu.vercel.app/favorites", theArray);
     favCountDispatcher();
   };
 
   const onAddToBag = async (item) => {
-    await axios.post(`http://localhost:3000/cart`, item);
+    await axios.post(`https://api-test-mu.vercel.app/cart`, item);
     getCart();
     countDispatcher();
     favCountDispatcher();
-    await axios.delete(`http://localhost:3000/favorites/${item._id}`);
+    await axios.delete(`https://api-test-mu.vercel.app/favorites/${item._id}`);
   };
 
   return (

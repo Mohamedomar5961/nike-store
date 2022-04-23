@@ -30,15 +30,15 @@ const Items = () => {
   const dispatch = useDispatch();
 
   const getData = async () => {
-    const res = await axios.get("http://localhost:3000/posts");
+    const res = await axios.get("https://api-test-mu.vercel.app/posts");
     setApiData(res.data);
   };
   const getFavorite = async () => {
-    const result = await axios.get("http://localhost:3000/favorites");
+    const result = await axios.get("https://api-test-mu.vercel.app/favorites");
     setFavData(result.data);
   };
   const getCart = async () => {
-    const result = await axios.get("http://localhost:3000/cart");
+    const result = await axios.get("https://api-test-mu.vercel.app/cart");
     setCartData(result.data);
   };
 

@@ -12,11 +12,11 @@ const FavPage = () => {
   const dispatch = useDispatch();
 
   const getFavorite = async () => {
-    const result = await axios.get("http://localhost:3000/favorites");
+    const result = await axios.get("https://api-test-mu.vercel.app/favorites");
     setData(result.data);
   };
   const getCart = async () => {
-    const result = await axios.get("http://localhost:3000/cart");
+    const result = await axios.get("https://api-test-mu.vercel.app/cart");
     setCartData(result.data);
   };
   dispatch(favorite({ count: data.length }));
@@ -28,7 +28,7 @@ const FavPage = () => {
   }, []);
 
   // const onUnFavorite = async (id) => {
-  //   await axios.delete(`http://localhost:3000/favorites/${id}`);
+  //   await axios.delete(`https://api-test-mu.vercel.app/favorites/${id}`);
   //   getFavorite();
   // };
   const onClicked = (item) => {

@@ -6,11 +6,11 @@ const CartFav = () => {
   const [favData, setFavData] = React.useState([]);
 
   const getFavorite = async () => {
-    const result = await axios.get("http://localhost:3000/favorites");
+    const result = await axios.get("https://api-test-mu.vercel.app/favorites");
     setFavData(result.data);
   };
   const getCart = async () => {
-    const result = await axios.get("http://localhost:3000/cart");
+    const result = await axios.get("https://api-test-mu.vercel.app/cart");
     setCartData(result.data);
   };
 
@@ -20,9 +20,9 @@ const CartFav = () => {
   }, []);
 
   const onAddToBag = async (item) => {
-    await axios.post(`http://localhost:3000/cart`, item);
+    await axios.post(`https://api-test-mu.vercel.app/cart`, item);
     getCart();
-    await axios.delete(`http://localhost:3000/favorites/${item._id}`);
+    await axios.delete(`https://api-test-mu.vercel.app/favorites/${item._id}`);
   };
 
   return (

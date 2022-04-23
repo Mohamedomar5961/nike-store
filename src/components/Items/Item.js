@@ -13,11 +13,11 @@ const Item = () => {
   const dispatch = useDispatch();
 
   const getFavorite = async () => {
-    const result = await axios.get("http://localhost:3000/favorites");
+    const result = await axios.get("https://api-test-mu.vercel.app/favorites");
     setData(result.data);
   };
   const getCart = async () => {
-    const result = await axios.get("http://localhost:3000/cart");
+    const result = await axios.get("https://api-test-mu.vercel.app/cart");
     setCartData(result.data);
   };
 
@@ -40,7 +40,7 @@ const Item = () => {
 
   const onFavorite = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:3000/favorites", info);
+    await axios.post("https://api-test-mu.vercel.app/favorites", info);
     getFavorite();
     setCheckIfFav(!checkIfFav);
   };
@@ -48,7 +48,7 @@ const Item = () => {
   const onUnFavorite = () => {
     data.filter((item) => {
       if (item.id === info.id) {
-        axios.delete(`http://localhost:3000/favorites/${item._id}`);
+        axios.delete(`https://api-test-mu.vercel.app/favorites/${item._id}`);
         getFavorite();
         setCheckIfFav(!checkIfFav);
         // favDispatcher();
@@ -58,7 +58,7 @@ const Item = () => {
 
   const onAddToBag = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:3000/cart", info);
+    await axios.post("https://api-test-mu.vercel.app/cart", info);
     getCart();
     countDispatcher();
   };
